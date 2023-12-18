@@ -49,7 +49,7 @@ def test_add_one_item_though_api(browser_management):
         browser.open(WEB_URL)
         browser.driver.add_cookie({"name": "Nop.customer", "value": cookie})
     with step("Открыть страницу Корзины покупок"):
-        browser.open(WEB_URL + "/cart")
+        browser.element('#topcartlink').click()
 
     browser.element(".qty-input").should(have.value("1"))
 
@@ -67,6 +67,6 @@ def test_add_some_items_though_api(browser_management):
         browser.open(WEB_URL)
         browser.driver.add_cookie({"name": "Nop.customer", "value": cookie})
     with step("Открыть страницу Корзины покупок"):
-        browser.open(WEB_URL + "/cart")
+        browser.element('#topcartlink').click()
 
     browser.element(".qty-input").should(have.value(f"{count_items}"))
